@@ -170,6 +170,9 @@
   .card .sub { color: var(--muted); font-size: .92rem; }
   .card .planned { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em;
                    text-transform: uppercase; color: var(--accent-2); }
+  .card .codelink { color: var(--accent); font-weight: 600; font-size: .92rem; text-decoration: none;
+                    margin-top: 2px; }
+  .card .codelink:hover { text-decoration: underline; }
 
   /* ---- skills ---- */
   .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -312,22 +315,22 @@
     <div class="sec-head" style="margin-top:56px"><span class="no">03</span><h2>More projects</h2></div>
     <div class="proj-grid">
       <article class="card">
-        <span class="planned">Next build</span>
-        <h3>DocuAsk — RAG over your PDFs</h3>
-        <p class="sub">A retrieval-augmented question-answering app: embed a folder of documents, retrieve the
-          relevant chunks, and answer with citations. Shows embeddings, a vector store, and LLM orchestration.</p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">embeddings</span><span class="chip">FAISS</span><span class="chip">Streamlit</span></div>
+        <h3>ASUR — AI Content-Creation OS</h3>
+        <p class="sub">A local-first, key-free system that takes one idea through research, scripting, media
+          generation, editing, an <em>honest</em> firewalled viral check, publishing, and cross-video learning —
+          a closed creative loop with strict provenance and versioning, not a pile of disconnected AI tools.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Local-first</span><span class="chip">AI pipeline</span><span class="chip">pytest</span><span class="chip">CI</span></div>
+        <a class="codelink" href="https://github.com/prathamshukla28/asur" target="_blank" rel="noopener">View code ↗</a>
       </article>
       <article class="card">
-        <span class="planned">Next build</span>
-        <h3>StreamStats — real-time data pipeline</h3>
-        <p class="sub">Ingest a live event stream, aggregate it in windows, and surface the metrics on a
-          dashboard. Shows data engineering: streaming, scheduling, and a storage layer.</p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Kafka</span><span class="chip">DuckDB</span><span class="chip">Plotly</span></div>
+        <h3>ComeBack — habit &amp; workout tracker</h3>
+        <p class="sub">A privacy-first mobile app with an AI coach: relapse-aware streaks that reframe a lapse
+          instead of resetting it, offline-safe logging with a replay outbox, a biometric lock, and a crisis
+          safety net. Runs on iOS, Android and web.</p>
+        <div class="chips"><span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Expo</span><span class="chip">Supabase</span><span class="chip">Gemini + RAG</span></div>
+        <a class="codelink" href="https://github.com/prathamshukla28/-ComeBack-" target="_blank" rel="noopener">View code ↗</a>
       </article>
     </div>
-    <p class="note" style="margin-top:18px">These two are starter ideas — swap them for projects you build, or
-      ask me to build one next the way I built ChurnGuard.</p>
   </div>
 </section>
 
