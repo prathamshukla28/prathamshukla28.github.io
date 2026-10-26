@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pratham Shukla — Data / Machine-Learning Engineer. Portfolio and selected projects.">
+<meta property="og:title" content="Pratham Shukla — Data / ML Engineer">
+<meta property="og:description" content="Portfolio and selected machine-learning projects.">
+<meta property="og:type" content="website">
+<style>
+  :root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+  html, body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Pratham Shukla</title>
+<style>
+  /* Layout: single column, sticky nav, full-bleed color bands with an inner
+     max-65ch content rail. Identity: technical "data-lab" look — ink slate +
+     indigo/cyan accent, geometric display (Sora) over humanist body (IBM Plex). */
+  :root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --surface-2: #eef1f8;
+    --fg: #1a1f2e;
+    --muted: #596079;
+    --border: #dfe3ee;
+    --accent: #4f46e5;
+    --accent-2: #0891b2;
+    --good: #0f9d6b;
+    --shadow: 0 1px 2px rgba(26,31,46,.06), 0 8px 24px rgba(26,31,46,.06);
+    --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --maxw: 1080px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0f18;
+      --surface: #141926;
+      --surface-2: #1b2130;
+      --fg: #eef1f8;
+      --muted: #9aa3bd;
+      --border: #273040;
+      --accent: #8b87ff;
+      --accent-2: #38bdf8;
+      --good: #34d399;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0f18;
+    --surface: #141926;
+    --surface-2: #1b2130;
+    --fg: #eef1f8;
+    --muted: #9aa3bd;
+    --border: #273040;
+    --accent: #8b87ff;
+    --accent-2: #38bdf8;
+    --good: #34d399;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.12; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto;
+          padding-left: max(20px, env(safe-area-inset-left, 0px));
+          padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+  /* ---- sticky nav ---- */
+  .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+         background: color-mix(in srgb, var(--bg) 82%, transparent);
+         backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+                 z-index: 21; background: var(--bg); }
+  .nav-inner { display: flex; align-items: center; gap: 16px; padding-block: 12px; }
+  .brand { font-family: var(--font-mono); font-weight: 600; letter-spacing: .02em; font-size: .9rem; }
+  .brand .dot { color: var(--accent); }
+  .nav-links { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { font-size: .86rem; color: var(--muted); text-decoration: none;
+                 padding: 6px 10px; border-radius: 8px; }
+  .nav-links a:hover { color: var(--fg); background: var(--surface-2); }
+  .toggle { border: 1px solid var(--border); background: var(--surface); color: var(--fg);
+            width: 36px; height: 36px; border-radius: 9px; cursor: pointer; font-size: 1rem;
+            display: grid; place-items: center; flex: none; }
+  .toggle:hover { border-color: var(--accent); }
+
+  /* ---- hero ---- */
+  .hero { padding-block: clamp(48px, 9vw, 104px); }
+  .eyebrow { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .14em;
+             text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2.3rem, 7vw, 4.1rem); font-weight: 700; letter-spacing: -.02em; }
+  .hero .lede { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--muted);
+                max-width: 60ch; margin-top: 20px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+         font-size: .92rem; font-weight: 600; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-ghost { border-color: var(--border); background: var(--surface); color: var(--fg); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* ---- sections ---- */
+  section { padding-block: clamp(40px, 7vw, 76px); }
+  .band { background: var(--surface); border-block: 1px solid var(--border); }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 30px; }
+  .sec-head .no { font-family: var(--font-mono); color: var(--accent); font-size: .9rem; }
+  .sec-head h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 600; letter-spacing: -.01em; }
+
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+  .about p + p { margin-top: 16px; }
+  .about .muted { color: var(--muted); }
+  .facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .facts li { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: baseline;
+              font-size: .94rem; }
+  .facts .k { font-family: var(--font-mono); font-size: .78rem; text-transform: uppercase;
+              letter-spacing: .08em; color: var(--accent-2); }
+
+  /* ---- flagship project ---- */
+  .flagship { background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+              box-shadow: var(--shadow); overflow: hidden; }
+  .flagship-head { padding: clamp(22px, 4vw, 34px); display: grid; gap: 14px; }
+  .tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+         text-transform: uppercase; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent);
+         padding: 4px 10px; border-radius: 999px; width: fit-content; }
+  .flagship-head h3 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 600; }
+  .flagship-head .sub { color: var(--muted); max-width: 62ch; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border);
+          border-block: 1px solid var(--border); }
+  .kpi { background: var(--surface); padding: 20px clamp(14px, 3vw, 24px); }
+  .kpi .v { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700;
+            letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .kpi .v small { font-size: .55em; color: var(--muted); font-weight: 600; }
+  .kpi .l { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase;
+            letter-spacing: .06em; color: var(--muted); margin-top: 4px; }
+
+  .figs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .fig { background: var(--surface); padding: 18px; }
+  .fig figcaption { font-family: var(--font-mono); font-size: .74rem; color: var(--muted); margin-top: 8px;
+                    text-align: center; }
+  .fig img { border-radius: 8px; margin-inline: auto; }
+
+  .flagship-body { padding: clamp(22px, 4vw, 34px); display: grid; gap: 22px; }
+  .feature-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .feature-list li { display: grid; grid-template-columns: auto 1fr; gap: 10px; font-size: .95rem; }
+  .feature-list .mark { color: var(--good); font-weight: 700; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-family: var(--font-mono); font-size: .76rem; padding: 5px 10px; border-radius: 8px;
+          background: var(--surface-2); border: 1px solid var(--border); color: var(--fg); }
+
+  /* ---- more projects ---- */
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+          padding: 24px; display: grid; gap: 12px; align-content: start; }
+  .card h3 { font-size: 1.15rem; font-weight: 600; }
+  .card .sub { color: var(--muted); font-size: .92rem; }
+  .card .planned { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--accent-2); }
+
+  /* ---- skills ---- */
+  .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill-col h3 { font-size: .8rem; font-family: var(--font-mono); text-transform: uppercase;
+                  letter-spacing: .1em; color: var(--accent-2); margin-bottom: 12px; }
+  .skill-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: .94rem; }
+
+  /* ---- contact ---- */
+  .contact-card { display: grid; gap: 18px; max-width: 60ch; }
+  .copyrow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+             font-family: var(--font-mono); font-size: .95rem; }
+  .copyrow code { background: var(--surface-2); border: 1px solid var(--border); padding: 7px 12px;
+                  border-radius: 8px; }
+  .copy-btn { border: 1px solid var(--border); background: var(--surface); color: var(--fg);
+              padding: 7px 12px; border-radius: 8px; cursor: pointer; font-family: var(--font-mono);
+              font-size: .82rem; }
+  .copy-btn:hover { border-color: var(--accent); }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .links a { font-size: .92rem; text-decoration: none; color: var(--accent); font-weight: 600; }
+  .links a:hover { text-decoration: underline; }
+
+  footer { padding-block: 40px; color: var(--muted); font-size: .84rem; }
+  .note { font-family: var(--font-mono); font-size: .78rem; color: var(--muted);
+          border: 1px dashed var(--border); border-radius: 10px; padding: 10px 14px; }
+
+  :where(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+
+  @media (max-width: 760px) {
+    .about-grid, .proj-grid, .skill-grid, .figs { grid-template-columns: 1fr; }
+    .kpis { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+  html { scroll-behavior: smooth; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <span class="brand">pratham<span class="dot">.</span>shukla</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="toggle" id="themeBtn" aria-label="Toggle light and dark theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Pratham Shukla — Data / Machine-Learning Engineer</div>
+    <h1>I turn messy data into models that ship.</h1>
+    <p class="lede">I build end-to-end ML systems — from the data pipeline and the model to a tested API and a
+      Docker image that runs anywhere. Below is a production-style project I built from scratch, with the real
+      numbers it produces.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">View the project ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/prathamshukla28" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div class="sec-head"><span class="no">01</span><h2>About me</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a data and machine-learning engineer with around five years of hands-on experience taking models
+          past the notebook and into services people can actually call. I care about the unglamorous parts that
+          make ML reliable: leak-free pipelines, reproducible training, tests, and clean deployment.</p>
+        <p class="muted">I work mostly in Python — scikit-learn, pandas and NumPy for modelling, FastAPI for
+          serving, and Docker plus GitHub Actions to ship it. I like problems where a model has a clear business
+          job to do, like deciding which customers to call before they leave.</p>
+      </div>
+      <ul class="facts">
+        <li><span class="k">Focus</span><span>Applied ML, MLOps, data pipelines</span></li>
+        <li><span class="k">Stack</span><span>Python, scikit-learn, pandas, FastAPI, Docker</span></li>
+        <li><span class="k">Strength</span><span>Shipping reproducible, tested ML services</span></li>
+        <li><span class="k">Open to</span><span>ML / Data Engineer roles</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">02</span><h2>Flagship project</h2></div>
+
+    <article class="flagship">
+      <div class="flagship-head">
+        <span class="tag">End-to-end ML service</span>
+        <h3>ChurnGuard — Customer Churn Prediction</h3>
+        <p class="sub">A service that predicts which telecom customers are about to cancel, so a retention team
+          can reach them first. It covers the full lifecycle: data → features → model selection → evaluation →
+          a served REST API, with the engineering practices of a production system.</p>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="v">0.81</div><div class="l">ROC-AUC</div></div>
+        <div class="kpi"><div class="v">76<small>%</small></div><div class="l">Churners caught (recall)</div></div>
+        <div class="kpi"><div class="v">7,043</div><div class="l">Customers modelled</div></div>
+        <div class="kpi"><div class="v">16</div><div class="l">Passing tests</div></div>
+      </div>
+
+      <div class="figs">
+        <figure class="fig">
+          <img src="assets/roc_curve.png" alt="ROC curve reaching an area under the curve of 0.81" loading="lazy">
+          <figcaption>ROC curve — AUC 0.81 on held-out data</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="assets/feature_importance.png" alt="Bar chart of the top churn drivers by permutation importance" loading="lazy">
+          <figcaption>Top churn drivers (permutation importance)</figcaption>
+        </figure>
+      </div>
+
+      <div class="flagship-body">
+        <ul class="feature-list">
+          <li><span class="mark">✓</span><span><strong>Leak-free pipeline.</strong> All scaling and encoding live inside a scikit-learn <code>Pipeline</code>, fit only on the training fold and cross-validated as one unit.</span></li>
+          <li><span class="mark">✓</span><span><strong>Automatic model selection.</strong> Logistic regression, random forest and gradient boosting are compared by 5-fold CV ROC-AUC; the winner is saved.</span></li>
+          <li><span class="mark">✓</span><span><strong>Served with FastAPI.</strong> <code>/predict</code> returns a churn probability and a risk band; a new, month-to-month fibre customer scores 0.97, a loyal two-year customer 0.01.</span></li>
+          <li><span class="mark">✓</span><span><strong>Reproducible &amp; shipped.</strong> One seed through the whole run, a pytest suite, a Dockerfile that trains into the image, and GitHub Actions CI on Python 3.10 &amp; 3.12.</span></li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span>
+          <span class="chip">FastAPI</span><span class="chip">pytest</span><span class="chip">Docker</span>
+          <span class="chip">GitHub Actions</span><span class="chip">matplotlib</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://github.com/prathamshukla28/churnguard" target="_blank" rel="noopener">View code on GitHub</a>
+          <a class="btn btn-ghost" href="https://github.com/prathamshukla28/churnguard#readme" target="_blank" rel="noopener">Read the case study</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="sec-head" style="margin-top:56px"><span class="no">03</span><h2>More projects</h2></div>
+    <div class="proj-grid">
+      <article class="card">
+        <span class="planned">Next build</span>
+        <h3>DocuAsk — RAG over your PDFs</h3>
+        <p class="sub">A retrieval-augmented question-answering app: embed a folder of documents, retrieve the
+          relevant chunks, and answer with citations. Shows embeddings, a vector store, and LLM orchestration.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">embeddings</span><span class="chip">FAISS</span><span class="chip">Streamlit</span></div>
+      </article>
+      <article class="card">
+        <span class="planned">Next build</span>
+        <h3>StreamStats — real-time data pipeline</h3>
+        <p class="sub">Ingest a live event stream, aggregate it in windows, and surface the metrics on a
+          dashboard. Shows data engineering: streaming, scheduling, and a storage layer.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Kafka</span><span class="chip">DuckDB</span><span class="chip">Plotly</span></div>
+      </article>
+    </div>
+    <p class="note" style="margin-top:18px">These two are starter ideas — swap them for projects you build, or
+      ask me to build one next the way I built ChurnGuard.</p>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">04</span><h2>Skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill-col">
+        <h3>Machine learning</h3>
+        <ul>
+          <li>scikit-learn pipelines</li>
+          <li>Classification &amp; regression</li>
+          <li>Cross-validation &amp; model selection</li>
+          <li>Evaluation (ROC, PR, calibration)</li>
+          <li>Feature engineering</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Data &amp; language</h3>
+        <ul>
+          <li>Python, SQL</li>
+          <li>pandas, NumPy</li>
+          <li>matplotlib / Plotly</li>
+          <li>Data cleaning &amp; EDA</li>
+          <li>NumPy-based simulation</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Engineering &amp; MLOps</h3>
+        <ul>
+          <li>FastAPI, REST APIs</li>
+          <li>Docker</li>
+          <li>pytest, CI (GitHub Actions)</li>
+          <li>Git &amp; code review</li>
+          <li>Reproducible pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">05</span><h2>Contact</h2></div>
+    <div class="contact-card">
+      <p class="about muted">The fastest way to reach me is email. I'm happy to walk through any project,
+        including the code and the trade-offs behind it.</p>
+      <div class="copyrow">
+        <code id="email">prathamshukla2804@gmail.com</code>
+        <button class="copy-btn" id="copyEmail">Copy</button>
+      </div>
+      <div class="links">
+        <a href="https://github.com/prathamshukla28" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/prathamshukla28" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Built with care — Data / ML Engineer portfolio. Flagship figures are the real output of the ChurnGuard pipeline.</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeBtn");
+    function stored() { try { return localStorage.getItem("theme"); } catch (e) { return null; } }
+    function apply(t) { if (t === "light" || t === "dark") root.setAttribute("data-theme", t); else root.removeAttribute("data-theme"); }
+    apply(stored());
+    function current() {
+      var set = root.getAttribute("data-theme");
+      if (set) return set;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      apply(next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    var copy = document.getElementById("copyEmail");
+    copy.addEventListener("click", function () {
+      var text = document.getElementById("email").textContent.trim();
+      function done() { var o = copy.textContent; copy.textContent = "Copied ✓"; setTimeout(function () { copy.textContent = o; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(select);
+      } else { select(); }
+      function select() {
+        var r = document.createRange(); r.selectNode(document.getElementById("email"));
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
