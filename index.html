@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Pratham Shukla — Data / Machine-Learning Engineer. Portfolio and selected projects.">
-<meta property="og:title" content="Pratham Shukla — Data / ML Engineer">
-<meta property="og:description" content="Portfolio and selected machine-learning projects.">
+<meta name="description" content="Pratham Shukla — AI Engineer building LLM apps, RAG pipelines and AI agents. Portfolio and selected projects.">
+<meta property="og:title" content="Pratham Shukla — AI Engineer">
+<meta property="og:description" content="LLMs, RAG, AI agents and end-to-end ML: portfolio and selected projects.">
 <meta property="og:type" content="website">
 <style>
   :root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
@@ -175,7 +175,7 @@
   .card .codelink:hover { text-decoration: underline; }
 
   /* ---- skills ---- */
-  .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .skill-col h3 { font-size: .8rem; font-family: var(--font-mono); text-transform: uppercase;
                   letter-spacing: .1em; color: var(--accent-2); margin-bottom: 12px; }
   .skill-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: .94rem; }
@@ -204,6 +204,9 @@
     .about-grid, .proj-grid, .skill-grid, .figs { grid-template-columns: 1fr; }
     .kpis { grid-template-columns: 1fr 1fr; }
   }
+  @media (min-width: 761px) and (max-width: 1000px) {
+    .skill-grid { grid-template-columns: 1fr 1fr; }
+  }
   @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
   html { scroll-behavior: smooth; }
 </style>
@@ -227,11 +230,11 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Pratham Shukla — Data / Machine-Learning Engineer</div>
-    <h1>I turn messy data into models that ship.</h1>
-    <p class="lede">I build end-to-end ML systems — from the data pipeline and the model to a tested API and a
-      Docker image that runs anywhere. Below is a production-style project I built from scratch, with the real
-      numbers it produces.</p>
+    <div class="eyebrow">Pratham Shukla — AI Engineer</div>
+    <h1>I build intelligent AI systems that ship.</h1>
+    <p class="lede">LLM apps, RAG pipelines, AI agents and automation, built on solid ML engineering: clean data
+      pipelines, tested APIs and Docker images that run anywhere. Below is a production-style project I built from
+      scratch, with the real numbers it produces.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#projects">View the project ↓</a>
       <a class="btn btn-ghost" href="https://github.com/prathamshukla28" target="_blank" rel="noopener">GitHub</a>
@@ -245,18 +248,21 @@
     <div class="sec-head"><span class="no">01</span><h2>About me</h2></div>
     <div class="about-grid">
       <div>
-        <p>I'm a data and machine-learning engineer with around five years of hands-on experience taking models
-          past the notebook and into services people can actually call. I care about the unglamorous parts that
-          make ML reliable: leak-free pipelines, reproducible training, tests, and clean deployment.</p>
-        <p class="muted">I work mostly in Python — scikit-learn, pandas and NumPy for modelling, FastAPI for
-          serving, and Docker plus GitHub Actions to ship it. I like problems where a model has a clear business
-          job to do, like deciding which customers to call before they leave.</p>
+        <p>I'm an AI engineer at <a href="https://github.com/EtharaAI" target="_blank" rel="noopener">EtharaAI</a>
+          in Gurugram, building intelligent AI systems and developer tools with Python, LLMs, RAG and AI agents.
+          I have around five years of hands-on experience taking models past the notebook and into services people
+          can actually call.</p>
+        <p class="muted">I care about the unglamorous parts that make AI reliable: grounded retrieval, leak-free
+          pipelines, reproducible training, tests and clean deployment. I work mostly in Python, with LLM APIs
+          such as Claude and Gemini, scikit-learn and pandas for modelling, FastAPI for serving, and Docker plus
+          GitHub Actions to ship it.</p>
       </div>
       <ul class="facts">
-        <li><span class="k">Focus</span><span>Applied ML, MLOps, data pipelines</span></li>
-        <li><span class="k">Stack</span><span>Python, scikit-learn, pandas, FastAPI, Docker</span></li>
-        <li><span class="k">Strength</span><span>Shipping reproducible, tested ML services</span></li>
-        <li><span class="k">Open to</span><span>ML / Data Engineer roles</span></li>
+        <li><span class="k">Now</span><span>AI Engineer at EtharaAI, Gurugram</span></li>
+        <li><span class="k">Focus</span><span>LLM apps, RAG, AI agents, automation</span></li>
+        <li><span class="k">Stack</span><span>Python, Claude &amp; Gemini APIs, FastAPI, scikit-learn, Docker</span></li>
+        <li><span class="k">Strength</span><span>Shipping reliable, tested AI services</span></li>
+        <li><span class="k">Open to</span><span>AI / ML Engineer roles</span></li>
       </ul>
     </div>
   </div>
@@ -330,6 +336,22 @@
         <div class="chips"><span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">Expo</span><span class="chip">Supabase</span><span class="chip">Gemini + RAG</span></div>
         <a class="codelink" href="https://github.com/prathamshukla28/-ComeBack-" target="_blank" rel="noopener">View code ↗</a>
       </article>
+      <article class="card">
+        <h3>Trinetra — the third eye for software</h3>
+        <p class="sub">A CLI that reverse-engineers, audits and rebuilds software. Point it at an app, a source
+          tree or a native binary: it maps what is inside, audits it for security weaknesses, and can rebuild a
+          clean, tested version with an LLM in the loop.</p>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">Ghidra</span><span class="chip">Semgrep</span><span class="chip">Claude</span><span class="chip">Security</span></div>
+        <a class="codelink" href="https://github.com/prathamshukla28/trinetra" target="_blank" rel="noopener">View code ↗</a>
+      </article>
+      <article class="card">
+        <h3>Life OS — explainable personal decisions</h3>
+        <p class="sub">A local-first decision mentor for finance, health and career that works from facts you
+          enter and dated, cited rules. It never collapses a decision into one score: every analysis ends in a
+          fail-closed SHIP / HOLD / BLOCK verdict with reasons, plus an ISO-week planner.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Stdlib only</span><span class="chip">CLI</span><span class="chip">Offline</span></div>
+        <a class="codelink" href="https://github.com/prathamshukla28/life-os" target="_blank" rel="noopener">View code ↗</a>
+      </article>
     </div>
   </div>
 </section>
@@ -338,6 +360,16 @@
   <div class="wrap">
     <div class="sec-head"><span class="no">04</span><h2>Skills</h2></div>
     <div class="skill-grid">
+      <div class="skill-col">
+        <h3>AI &amp; LLMs</h3>
+        <ul>
+          <li>LLM apps (Claude, Gemini)</li>
+          <li>RAG pipelines &amp; retrieval</li>
+          <li>AI agents &amp; tool use</li>
+          <li>Workflow automation</li>
+          <li>Developer tooling</li>
+        </ul>
+      </div>
       <div class="skill-col">
         <h3>Machine learning</h3>
         <ul>
@@ -391,7 +423,7 @@
 </section>
 
 <footer>
-  <div class="wrap">Built with care — Data / ML Engineer portfolio. Flagship figures are the real output of the ChurnGuard pipeline.</div>
+  <div class="wrap">Built with care — AI Engineer portfolio. Flagship figures are the real output of the ChurnGuard pipeline.</div>
 </footer>
 
 <script>
